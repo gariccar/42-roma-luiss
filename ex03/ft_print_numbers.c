@@ -12,7 +12,7 @@
 
 #include <unistd.h>
 
-void	ft_print_number(void)
+void	ft_print_numbers(void)
 {
 	int	x;
 
@@ -26,6 +26,6 @@ void	ft_print_number(void)
 /*
 int main()
 {
-	ft_print_number();
+	ft_print_numbers();
 }
 */
