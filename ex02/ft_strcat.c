@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gariccar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 15:49:34 by gariccar          #+#    #+#             */
-/*   Updated: 2024/11/14 14:57:10 by gariccar         ###   ########.fr       */
+/*   Created: 2024/11/21 16:51:00 by gariccar          #+#    #+#             */
+/*   Updated: 2024/11/21 17:20:49 by gariccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_print_numbers(void)
+char	*ft_strcat(char *dest, char *src)
 {
-	int	x;
+	int	i;
 
-	x = 48;
-	while (x <= 57)
+	i = 0;
+	while (*dest != '\0')
 	{
-		write(1, &x, 1);
-		x++;
+		dest ++;
+		i ++;
 	}
+	while (*src != '\0')
+	{
+		*dest = *src;
+		src ++;
+		dest ++;
+		i ++;
+	}
+	dest ++;
+	i ++;
+	*dest = '\0';
+	return (dest - i);
 }
 /*
-int main()
+int	main(void)
 {
-	ft_print_numbers();
-}
-*/
+	char dest[10] = "ciao";
+
+	printf("%s\n", ft_strcat(dest, "mondo"));
+}*/

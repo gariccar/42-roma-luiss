@@ -1,57 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gariccar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 12:50:08 by gariccar          #+#    #+#             */
-/*   Updated: 2024/11/14 14:18:48 by gariccar         ###   ########.fr       */
+/*   Created: 2024/11/21 14:11:00 by gariccar          #+#    #+#             */
+/*   Updated: 2024/11/21 15:25:18 by gariccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	marcello(char x)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	char	y;
-	char	z;
+	unsigned int	i;
 
-	y = '0';
-	while (y <= '9')
+	i = 0;
+	if (n != 0)
 	{
-		z = '0';
-		while (z <= '9')
+		while ((i < (n -1)) && (*s1 != '\0' && *s2 != '\0'))
 		{
-			if (x < y && y < z)
-			{
-				write(1, &x, 1);
-				write(1, &y, 1);
-				write(1, &z, 1);
-				if (x != '7' )
-					write(1, ", ", 2);
-			}
-			z++;
+			if (*s1 != *s2)
+				return (*s1 - *s2);
+			s1 ++;
+			s2 ++;
+			i ++;
 		}
-		y++;
+		return (*s1 - *s2);
 	}
-}
-
-void	ft_print_comb(void)
-{
-	char	x;
-
-	x = '0';
-	while (x <= '9')
-	{
-		marcello(x);
-		x++;
-	}
+	return (0);
 }
 /*
-int	main ()
-
+int	main(void)
 {
-	ft_print_comb();
-}
-*/
+	printf("%d\n", ft_strncmp("cavallo", "cavb", 3));
+}*/

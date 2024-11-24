@@ -1,17 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gariccar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 15:57:34 by gariccar          #+#    #+#             */
-/*   Updated: 2024/11/07 17:09:20 by gariccar         ###   ########.fr       */
+/*   Created: 2024/11/21 02:33:40 by gariccar          #+#    #+#             */
+/*   Updated: 2024/11/21 02:40:07 by gariccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-void	ft_putchar(char c)
+#include <stdio.h>
+
+int	ft_strcmp(char *s1, char *s2)
 {
-	write(1, &c, 1);
+	while (*s1 != '\0' && *s2 != '\0')
+	{
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+		s1 ++;
+		s2 ++;
+	}
+	return (*s1 - *s2);
 }
+/*
+int main (void)
+{
+	char	*s1;
+	char	*s2;
+
+	s1 = "cazzo";
+	s2 = "ciao";
+	printf("%d\n",ft_strcmp(s1, s2));
+}
+*/
