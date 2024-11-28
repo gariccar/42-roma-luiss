@@ -1,45 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gariccar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 17:35:59 by gariccar          #+#    #+#             */
-/*   Updated: 2024/11/24 03:01:48 by gariccar         ###   ########.fr       */
+/*   Created: 2024/11/21 00:59:48 by gariccar          #+#    #+#             */
+/*   Updated: 2024/11/21 00:59:58 by gariccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+char	*ft_strlowcase(char *str)
 {
-	unsigned int	i;
-	unsigned int	t;
+	int	i;
 
 	i = 0;
-	t = 0;
-	while (*dest != '\0')
+	while (*str != '\0')
 	{
-		dest ++;
+		if (*str >= 'A' && *str <= 'Z')
+			*str = *str + 32;
+		str ++;
 		i ++;
 	}
-	while ((t < nb) && (*src != '\0'))
-	{
-		*dest = *src;
-		src ++;
-		dest ++;
-		i ++;
-		t ++;
-	}
-//	dest ++;
-//	i ++;
-	*dest = '\0';
-	return (dest - i);
+	return (str - i);
 }
-/*
-int	main(void)
-{
-	char	dest[15] = "Hello";
-	printf("%s\n", ft_strncat(dest, "World", 2));
-}*/
