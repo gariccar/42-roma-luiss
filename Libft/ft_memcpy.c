@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gariccar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 15:26:58 by gariccar          #+#    #+#             */
-/*   Updated: 2024/12/17 17:51:53 by gariccar         ###   ########.fr       */
+/*   Created: 2024/12/17 15:24:39 by gariccar          #+#    #+#             */
+/*   Updated: 2024/12/17 17:54:31 by gariccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
+#include <string.h>
+#include <stdio.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
-	if (s == NULL)
-		return (NULL);
+	if (dest == NULL || src == NULL)
+		return (dest);
 	i = 0;
 	while (i < n)
 	{
-		((char *)s)[i] = c;
+		((char *)dest)[i] = ((char *)src)[i];
 		i ++;
 	}
-	return (s);
+	return (dest);
 }
-
+/*
 int	main()
 {
-	char p[6];
-	ft_memset(p, 'A', 5);
-	p[5] = 0;
-	write(1, p, 6);
-}
+	char dst[11] = "hello ciao";
+	size_t n = 2;
+
+	char dsta[11] = "hello ciao";
+
+
+	memcpy(dst, dst + 3, n);
+	printf("%s\n", dst);
+	ft_memcpy(dsta, dsta + 3, n);
+	printf("%s\n", dsta);	 
+}*/
