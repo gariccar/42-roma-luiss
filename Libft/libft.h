@@ -6,7 +6,7 @@
 /*   By: gariccar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by gariccar          #+#    #+#             */
-/*   Updated: 2024/12/20 17:23:08 by gariccar         ###   ########.fr       */
+/*   Updated: 2024/12/22 12:19:37 by gariccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <string.h>
 
 void	ft_bzero(void *s, size_t n);
 int		ft_isalnum(int c);
@@ -31,7 +32,14 @@ int		ft_atoi(char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_memchr(const void *s, int c; size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-char		ft_strche(const char *s, int c); 
-
+char	ft_strchr(const char *s, int c);
+char	*ft_strdup(const char *s);
+size_t	ft_strlcat(char *dest, char *src, size_t size);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
+char	*strrchr(const char *s, int c);
+int		ft_tolower(int c);
+int		ft_toupper(int c);
 
 #endif

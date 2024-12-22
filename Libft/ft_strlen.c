@@ -6,13 +6,13 @@
 /*   By: gariccar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 02:04:03 by gariccar          #+#    #+#             */
-/*   Updated: 2024/11/19 02:07:14 by gariccar         ###   ########.fr       */
+/*   Updated: 2024/12/22 12:10:52 by gariccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
-	int	lunghezza;
+	size_t	lunghezza;
 
 	lunghezza = 0;
 	while (*str != '\0')
