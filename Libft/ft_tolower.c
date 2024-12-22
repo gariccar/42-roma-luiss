@@ -1,34 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gariccar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 15:26:22 by gariccar          #+#    #+#             */
-/*   Updated: 2024/12/20 17:20:20 by gariccar         ###   ########.fr       */
+/*   Created: 2024/12/20 17:49:49 by gariccar          #+#    #+#             */
+/*   Updated: 2024/12/20 17:49:51 by gariccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
 #include "libft.h"
 
-int	ft_isalnum(int c)
+int	ft_tolower(int c)
 {
-	if (ft_isdigit(c) || ft_isalpha(c))
-		return (1);
+	if (c >= 65 && c <= 90)
+		return (c + 32);
 	else
-		return (0);
+		return (c);
 }
-/*
-int	main()
-{
-	printf("%d\n", ft_isalnum('9'));
-	printf("%d\n", ft_isalnum(65));
-	printf("%d\n", ft_isalnum(52));
-	printf("%d\n", ft_isalnum('H'));
-	printf("%d\n", ft_isalnum('a'));
-	printf("%d\n", ft_isalnum(67));
-	printf("%d\n", ft_isalnum(33));
-	printf("%d\n", ft_isalnum(166));
-}*/

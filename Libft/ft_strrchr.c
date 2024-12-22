@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gariccar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 15:26:58 by gariccar          #+#    #+#             */
-/*   Updated: 2024/12/20 17:21:06 by gariccar         ###   ########.fr       */
+/*   Created: 2024/12/20 18:17:09 by gariccar          #+#    #+#             */
+/*   Updated: 2024/12/21 20:02:58 by gariccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+char	*strrchr(const char *s, int c)
 {
-	size_t	i;
+	int	i;
 
-	if (s == NULL)
-		return (NULL);
 	i = 0;
-	while (i < n)
+	while (*s != 0)
 	{
-		((char *)s)[i] = c;
+		s ++;
 		i ++;
 	}
-	return (s);
+	while (*s != c && i > 0)
+	{
+		if (*s == c)
+			return (s);
+		s --;
+		i --;
+	}
+	return (NULL);
 }
-/*
-int	main()
-{
-	char p[6];
-	ft_memset(p, 'A', 5);
-	p[5] = 0;
-	write(1, p, 6);
-}*/

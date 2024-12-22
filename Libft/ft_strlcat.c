@@ -6,24 +6,12 @@
 /*   By: gariccar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 02:55:07 by gariccar          #+#    #+#             */
-/*   Updated: 2024/11/24 02:58:31 by gariccar         ###   ########.fr       */
+/*   Updated: 2024/12/20 17:16:10 by gariccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <libft.h>
 
-unsigned int	mario(char *src)
-{
-	unsigned int	t;
-
-	t = 0;
-	while (*src != '\0')
-	{
-		src ++;
-		t ++;
-	}
-	return (t);
-}
-
-unsigned int	pippo(char *dest, char *src, unsigned int size, unsigned int i)
+size_t	cat(char *dest, char *src, size_t size, size_t i)
 {
 	while (*src != '\0' && i != size - 1)
 	{
@@ -40,13 +28,13 @@ unsigned int	pippo(char *dest, char *src, unsigned int size, unsigned int i)
 	else
 	{
 		*dest = '\0';
-		return (i + mario(src));
+		return (i + strlen(src));
 	}
 }
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	while (*dest != '\0' && i != size)
@@ -55,8 +43,12 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 		i ++;
 	}
 	if (i == size)
-		return (size + mario(src));
-	return (pippo(dest, src, size, i));
+		return (size + ft_strlen(src));
+	return (cat(dest, src, size, i));
 }
 /*
+int	main()
+{
+	
+}
 */

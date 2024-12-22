@@ -6,22 +6,23 @@
 /*   By: gariccar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 18:01:36 by gariccar          #+#    #+#             */
-/*   Updated: 2024/12/17 22:10:02 by gariccar         ###   ########.fr       */
+/*   Updated: 2024/12/20 17:19:17 by gariccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
+
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	int	i;
 
 	if (dest == NULL || src == NULL)
-		return (dest);	
+		return (dest);
 	i = 0;
 	if (dest > src)
 	{
-		i = n-1;
+		i = n - 1;
 		while (i >= 0)
 		{
 			((char *)dest)[i] = ((char *)src)[i];
