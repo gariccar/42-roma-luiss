@@ -9,6 +9,7 @@
 /*   Updated: 2024/12/21 20:02:58 by gariccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 char	*strrchr(const char *s, int c)
 {
@@ -23,7 +24,7 @@ char	*strrchr(const char *s, int c)
 	while (*s != c && i > 0)
 	{
 		if (*s == c)
-			return (s);
+			return ((char *)s);
 		s --;
 		i --;
 	}

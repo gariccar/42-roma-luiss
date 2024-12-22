@@ -9,7 +9,7 @@
 /*   Updated: 2024/12/20 17:16:10 by gariccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <libft.h>
+#include "libft.h"
 
 size_t	cat(char *dest, char *src, size_t size, size_t i)
 {
@@ -28,7 +28,7 @@ size_t	cat(char *dest, char *src, size_t size, size_t i)
 	else
 	{
 		*dest = '\0';
-		return (i + strlen(src));
+		return (i + ft_strlen(src));
 	}
 }
 

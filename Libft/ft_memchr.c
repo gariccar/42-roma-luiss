@@ -12,7 +12,6 @@ void	*memchr(const void *s, int c, size_t n)
 	}
 	if (*((unsigned char *)s) == c)
 		return ((void *)s);
-	else 
-		return (NULL);		
+	else
+		return (NULL);
 }
-

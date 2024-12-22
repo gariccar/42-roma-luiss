@@ -5,9 +5,10 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-FILES =	ft_memset \
-		ft_memmove \
-		ft_memcpy 
+FILES =  ft_memset ft_atoi ft_bzero  ft_strlcat ft_calloc ft_strlcpy \
+ ft_isalnum  ft_strlen ft_isalpha ft_strncmp ft_isascii ft_strncpy \
+ ft_isdigit ft_strnstr ft_isprint ft_strrchr ft_memchr  ft_tolower\
+ ft_memcmp   ft_toupper ft_memcpy ft_memmove ft_strchr ft_strdup 
 
 FILES_B = ft_lstnew \
 		  ft_lstadd_front \
@@ -33,6 +34,10 @@ OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
 
 $(NAME): $(OBJS)
 	$(AR) $@ $^
+
+test: $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o test
+
 
 bonus: $(OBJS_B)
 	$(AR) $(NAME) $^

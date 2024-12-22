@@ -19,14 +19,11 @@ int	ft_atoi(char *str)
 
 	segno = 1;
 	risultato = 0;
-	while (*str == 32 || (*str >= '\t' && *str <= '\r'))
+	if (*str != '-' && *str != '+' && (!(*str >= 48 && *str <= 57)))
+		return (0);
+	if (*str == '-')
 	{
-		str ++;
-	}
-	while (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			segno = -segno;
+		segno = -segno;
 		str ++;
 	}
 	while (*str >= '0' && *str <= '9')
@@ -39,8 +36,8 @@ int	ft_atoi(char *str)
 /*
 int	main(void)
 {
-        printf("%d\n", ft_atoi("        ---+--+1234ab567"));
-        printf("%d\n", ft_atoi("--1a23"));
-        printf("%d\n", ft_atoi("-+1245e54"));
-        printf("%d\n", ft_atoi("---1254%353"));
+        printf("%d\n", ft_atoi("-234ab567"));
+        printf("%d\n", ft_atoi("a23"));
+        printf("%d\n", ft_atoi("-1245e54"));
+        printf("%d\n", ft_atoi("1254%353"));
 }*/
