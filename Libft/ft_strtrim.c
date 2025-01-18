@@ -1,56 +1,58 @@
 #include "libft.h"
 
-size_t	lentrim(char const *s1, char const *set)
+size_t	ft_strtrim1(char const *s1, char const *set)
 {
-	size_t	i;
 	size_t	j;
-	size_t	l;
+	size_t	i;
 
 	j = 0;
-	l = 0;
-	while (set[j] != 0)
+	while (s1[j] != 0)
 	{
 		i = 0;
-		while (s1[i] != 0)
-		{
-			if (s1[i] == set[j])
-				l ++;
+		while (s1[j] != set[i] && set[i] != 0)
 			i ++;
-		}
-		j ++;
+		if (set[i] == 0)
+			break ;
+		else
+			j ++;
 	}
-	return (l);
+	return (j);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	*ptr;
+	size_t	i;
+	size_t	t;
+	size_t	start;
 
-	i = 0;
-	k = 0;
-	ptr = calloc((ft_strlen((char *)s1) - lentrim(s1, set) + 1), 1);
-	while (s1[i] != 0)
+	t = 0;
+	start = ft_strtrim1(s1, set);
+	if (s1[start] == 0)
+		return (ft_strdup(""));
+	while (s1[t] != 0)
+		t ++;
+	t --;
+	while (t > 0)
 	{
-		j = 0;
-		while (set[j] != 0)
-		{
-			if (s1[i] != set[j])
-				j ++;
-			else
-				i ++;
-		}
-		ptr[k] = s1[i];
-		i ++;
-		k ++;
+		i = 0;
+		while (s1[t] != set[i] && set[i] != 0)
+			i ++;
+		if (set[i] == 0)
+			break ;
+		else
+			t --;
 	}
-	return (ptr);
+	return (ft_substr(s1, start, t - start + 1));
 }
 /*
-int main()
+int     main()
 {
-	printf("%s\n", "sempre stati stanchi");
-	printf("%s\n", ft_strtrim("sempre stati stanchi", ""));
-}*/
+        printf("%s\n", ft_strtrim("abc cazzo vuoi abc", "abc "));
+        printf("%s\n", ft_strtrim("abc cazzo vuoi abc", "c"));
+        printf("%s\n", ft_strtrim("abc cazzo vuoi abc", "abc"));
+        printf("%s\n", ft_strtrim("abc cazzo vuoi abc", "b"));
+        printf("%s\n", ft_strtrim("abc cazzo vuoi abc", "cba"));
+        printf("%s\n", ft_strtrim("abc cazzo vuoi abc", "ab"));
+        printf("%s\n", ft_strtrim("abc cazzo vuoi abc", "abc cazzo vuoi abc"));
+}
+*/
