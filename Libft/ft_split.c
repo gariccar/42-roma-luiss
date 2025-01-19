@@ -24,7 +24,7 @@ size_t	wordcount(char const *s, char c)
 char	*stralloc(char const *s, char c, size_t i)
 {
 	unsigned int	t;
-	size_t		j;
+	size_t			j;
 
 	j = 0;
 	t = i;
