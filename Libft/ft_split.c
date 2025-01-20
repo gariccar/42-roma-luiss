@@ -28,7 +28,7 @@ char	*stralloc(char const *s, char c, size_t i)
 
 	j = 0;
 	t = i;
-	while (s[i] != c)
+	while (s[i] != c && s[i] != 0)
 	{
 		i ++;
 		j ++;

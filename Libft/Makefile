@@ -23,8 +23,8 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	$(AR) -r $@ $?
 
-test: $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o test
+test: $(NAME)
+	$(CC) $(CFLAGS) $(NAME) -o test
 
 bonus:	${OBJSBONUS}
 		ar rcs ${NAME} ${OBJSBONUS}

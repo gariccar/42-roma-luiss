@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	cat(char *dest, char *src, size_t size, size_t i)
+size_t	cat(char *dest, const char *src, size_t size, size_t i)
 {
 	while (*src != '\0' && i != size - 1)
 	{
@@ -32,7 +32,7 @@ size_t	cat(char *dest, char *src, size_t size, size_t i)
 	}
 }
 
-size_t	ft_strlcat(char *dest, char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 
