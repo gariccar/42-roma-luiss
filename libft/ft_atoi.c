@@ -6,7 +6,7 @@
 /*   By: gariccar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 23:43:36 by gariccar          #+#    #+#             */
-/*   Updated: 2024/11/26 00:15:08 by gariccar         ###   ########.fr       */
+/*   Updated: 2025/01/20 18:07:02 by gariccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_atoi(const char *str)
 
 	segno = 1;
 	risultato = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str ++;
 	if (*str != '-' && *str != '+' && (!(*str >= 48 && *str <= 57)))
 		return (0);
 	if (*str == '-')
@@ -26,6 +28,8 @@ int	ft_atoi(const char *str)
 		segno = -segno;
 		str ++;
 	}
+	else if (*str == '+')
+		str ++;
 	while (*str >= '0' && *str <= '9')
 	{
 		risultato = risultato * 10 + (*str - '0');

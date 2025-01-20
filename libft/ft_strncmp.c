@@ -6,7 +6,7 @@
 /*   By: gariccar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 20:00:25 by gariccar          #+#    #+#             */
-/*   Updated: 2024/12/21 20:00:30 by gariccar         ###   ########.fr       */
+/*   Updated: 2025/01/20 18:55:40 by gariccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,21 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		if (s1[i] == s2[i])
 			i ++;
 		else
-			return (s1[i] - s2[i]);
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 	}
 	if (i < n)
-		return (s1[i] - s2[i]);
-	else 
+		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	else
 		return (0);
 }
+
 /*
 int	main()
 {
-	printf("%d\n", ft_strncmp("banana", "banana", 6));
+	int c = '\200';
+	printf("%d\n\n", c);
+
+	printf("%d\n", ft_strncmp("test\200", "test\0", 6));
 	printf("%d\n", ft_strncmp("banana", "banano", 6));
 	printf("%d\n", ft_strncmp("banano", "banana", 6));
 	printf("%d\n", ft_strncmp("bana", "banana", 6));
