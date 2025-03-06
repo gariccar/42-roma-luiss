@@ -1,24 +1,10 @@
 #include "libft.h" 
 
 
-
-
-int	ft_printf(const char *format, ... )
+int	ft_switch(const char *format, int i, int *num,  va_list args)
 {
-	va_list	args;
-	int	i;
-
-	i = 0;
-	while (format[i] != '\0' && format[i] != '%')
-	{
-		write(1, format[i], 1);
-		i ++;
-	}
-	if (format[i] == '%')
-	{
-		i++;
 		if (format[i] == 'c')
-			character();
+			*num += character(format, args);
 		else if (format[i] == 's')
 			string();
 		else if (format[i] == 'p')
@@ -29,24 +15,43 @@ int	ft_printf(const char *format, ... )
 			unsignedint();
 		else if (format[i] == 'x')
 			exad();
-		else if (format[i] == 'x')
+		else if (format[i] == 'X')
 			Exad();
 		else if (format[i] == '%')
-			write(1, format[i], 1);
-		else 
+			write(1, &format[i], 1);
+		else
 		{
-			while (format[i] != 0)
-			{
-				write(1, format[i], 1);
-				i ++;
-			}
+			i --; 
+			write(1, &format[i], 1);
 		}
-	}
-
+		return (i)
 }
 
 
-int	main()
+
+int	ft_printf(const char *format, ... )
 {
-	printf("cazzo%razzo\n");
+	va_list	args;
+	int num;
+	int	i;
+
+	va_start(args, format);
+	i = 0;
+	num = 0;
+	while (format[i] != '\0')
+	{
+		if (format[i] == '%')
+		{
+			i ++;
+			i = ft_switch(format, i, &num, args)
+		}
+		else
+		{
+			write(1, &format[i], 1);
+			num ++;
+		}
+		i ++;
+	}
+	return ();
 }
+
