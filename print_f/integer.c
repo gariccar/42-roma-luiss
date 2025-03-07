@@ -28,6 +28,11 @@ static int	ft_putnbr_base(int nbr, char *base)
 	}
 	else
 	{
+		if (n < 0)
+		{
+			write(1, "-", 1);
+			return(ft_putbase(-n, 10, base) + 1);
+		}
 		return (ft_putbase(n, 10, base));
 	}
 }

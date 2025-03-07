@@ -7,6 +7,11 @@ int	string(va_list args)
 
 	i = 0;
 	c = va_arg(args, char *);
+	if (c == 0)
+	{
+		write(1, "(null)", 6);
+		return(6);
+	}
 	while (c[i] != 0)
 	{
 		write(1, &c[i], 1);

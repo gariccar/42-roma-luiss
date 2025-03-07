@@ -1,6 +1,6 @@
 #include <libft.h>
 
-static int	ft_putbase(long int n, int base, char *str)
+static int	ft_putbase(unsigned long int n, int base, char *str)
 {
 	int	l;	
 	int	b;
@@ -18,9 +18,9 @@ static int	ft_putbase(long int n, int base, char *str)
 
 static int	ft_putnbr_base(void *c, char *base)
 {
-	long	n;
+	unsigned long	n;
 	
-	n = (long)c;
+	n = (unsigned long)c;
 	if (n == 0)
 	{
 		write(1, "(nil)", 5);

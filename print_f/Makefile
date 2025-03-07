@@ -57,7 +57,7 @@ OBJECTS = $(SOURCES:.c=.o)
 OBJSBONUS = ${BONUS:.c=.o}
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I. -I./libft -fsanitize=address -g 
+CFLAGS = -Wall -Wextra -Werror -I. -I./libft -gdwarf-4 #-fsanitize=address -g 
 
 all: $(NAME)
 

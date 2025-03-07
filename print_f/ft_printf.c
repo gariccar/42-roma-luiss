@@ -16,13 +16,17 @@ int	ft_switch(const char *format, int i, int *num,  va_list args)
 		else if (format[i] == 'x')
 			*num += exad(args);
 		else if (format[i] == 'X')
-			*num = Exad(args);
+			*num += Exad(args);
 		else if (format[i] == '%')
-			write(1, &format[i], 1);
+		{
+			write(1,&format[i], 1);
+			(*num) ++;
+		}
 		else
 		{
 			i --; 
 			write(1, &format[i], 1);
+			(*num) ++;
 		}
 		return (i);
 }
