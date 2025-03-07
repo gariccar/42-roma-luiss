@@ -1,22 +1,22 @@
 #include "libft.h" 
-
+#include "printf_utils.h"
 
 int	ft_switch(const char *format, int i, int *num,  va_list args)
 {
 		if (format[i] == 'c')
-			*num += character(format, args);
+			*num += character(args);
 		else if (format[i] == 's')
-			string();
+			*num += string(args);
 		else if (format[i] == 'p')
-			pointer();
+			*num += pointer(args);
 		else if (format[i] == 'd' || format[i] == 'i')
-			integer();
+			*num += integer(args);
 		else if (format[i] == 'u')
-			unsignedint();
+			*num += unsignedint(args);
 		else if (format[i] == 'x')
-			exad();
+			*num += exad(args);
 		else if (format[i] == 'X')
-			Exad();
+			*num = Exad(args);
 		else if (format[i] == '%')
 			write(1, &format[i], 1);
 		else
@@ -24,7 +24,7 @@ int	ft_switch(const char *format, int i, int *num,  va_list args)
 			i --; 
 			write(1, &format[i], 1);
 		}
-		return (i)
+		return (i);
 }
 
 
@@ -43,7 +43,8 @@ int	ft_printf(const char *format, ... )
 		if (format[i] == '%')
 		{
 			i ++;
-			i = ft_switch(format, i, &num, args)
+
+			i = ft_switch(format, i, &num, args);
 		}
 		else
 		{
@@ -52,6 +53,7 @@ int	ft_printf(const char *format, ... )
 		}
 		i ++;
 	}
-	return ();
+	va_end(args);
+	return (num);
 }
 

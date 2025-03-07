@@ -43,14 +43,21 @@ libft/ft_strtrim.c\
 libft/ft_substr.c\
 libft/ft_tolower.c\
 libft/ft_toupper.c\
-ft_printf.c
+ft_printf.c\
+character.c\
+string.c\
+integer.c\
+exad.c\
+Exad.c\
+pointer.c\
+unsignedint.c
 
 INCLUDES := libft.h
 OBJECTS = $(SOURCES:.c=.o)
 OBJSBONUS = ${BONUS:.c=.o}
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I./libft -fsanitize=address -g 
+CFLAGS = -Wall -Wextra -Werror -I. -I./libft -fsanitize=address -g 
 
 all: $(NAME)
 
